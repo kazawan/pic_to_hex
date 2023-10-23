@@ -8,6 +8,8 @@ from rich.console import Console
 from rich.text import Text
 from rich.progress import track
 
+os.popen('cls') # 清屏
+
 logo = "PIC_TO_HEX"
 print(art.text2art(logo, font='small'))
 
