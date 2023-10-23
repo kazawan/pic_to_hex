@@ -13,6 +13,7 @@ print(art.text2art(logo, font='small'))
 
 console = Console()
 
+version = '1.0.0'
 
 
 
@@ -32,6 +33,9 @@ for i in range (len(sys.argv)):
             
     if sys.argv[i] == '-o':
         argv_int += 1
+    if sys.argv[i] == '-v':
+        console.print('Version: ' + version,style="bold green")
+        sys.exit(1)
 
 if argv_int != 2 or not sys.argv[1:]:
     console.print("⛔ Usage: pictohex [-i source_path] [-o output_path]",style="bold red")
@@ -94,7 +98,7 @@ dict = open(dist_filename, 'a')
 dict.write('/** \n')
 dict.write(' * @file ' + dist_filename + '\n')
 dict.write(' * @brief ' + filename + '的RGB565格式数据 \n')
-dict.write(' * @version 0.1 \n')
+dict.write(' * @version ' + version +  '\n')
 dict.write(' * @width' + str(imgWidth) + '\n')
 dict.write(' * @height' + str(imgHeight) + '\n')
 dict.write(' * @date ' + localtime)
@@ -127,6 +131,8 @@ if os.access(dist_path, os.F_OK):
     if input == 'y' or input == 'Y':
         os.remove(dist_path)
     elif input == 'n' or input == 'N':
+        os.remove(filename)
+        os.remove(dist_filename)
         console.print('❌ Exit',style="bold red")
         os.startfile(output_path)
         sys.exit(1)
