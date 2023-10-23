@@ -6,4 +6,6 @@
 cmd
 ```cmd
 pictohex -i C:\Users\a\Documents\py\image\2.png -o C:\Users\a\Documents\py\hexfile
+
+pictohexdir -i C:\Users\a\Documents\py\image\
 ```
