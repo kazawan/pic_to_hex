@@ -65,6 +65,8 @@ hex_file.write(' */ \n')
 
 for i in track(range(documentLen),description="Processing..."):
     pictohex(document[i],hex_file)
-    
+
+#close file
+hex_file.close()
 console.print('🍻 Done',style="bold green")
 os.startfile(dist_dir)
